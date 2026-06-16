@@ -1,15 +1,19 @@
 import sqlite3
 from pathlib import Path
 from datetime import date
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "data" / "study_tracker.db"
+
+# Create data folder automatically
+DATA_DIR = BASE_DIR / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+DB_PATH = DATA_DIR / "study_tracker.db"
 
 
 def get_connection():
     return sqlite3.connect(DB_PATH)
-
-
 def create_tables():
     conn = get_connection()
     cursor = conn.cursor()
