@@ -1,16 +1,5 @@
-from plyer import notification
+import flet as ft
 
 
 def show_notification(title, message):
-
-    notification.notify(
-        title=title,
-        message=message,
-        timeout=10
-    )
-from services.notification import show_notification
-
-show_notification(
-    "SSC CGL Tracker",
-    "Today's Targets Pending!"
-)
+    print(f"{title}: {message}")
